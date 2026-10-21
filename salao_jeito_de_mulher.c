@@ -150,30 +150,20 @@ void cadastrar_cliente(){
         printf("\nDigite o número de telefone:  ");
         scanf("%s", clie[i].telefone);
 
+  do {
         printf("\nDigite o CPF: ");
         scanf("%s", clie[i].cpf);
 
         for (int j = 0; j < 11; j++){
         cpf_digitos[j] = clie[i].cpf[j] - '0';
+
+        }
+        resultado = validaCPF(cpf_digitos);
+    }
+    while (resultado != true);
+    
     }
     
-    resultado = validaCPF(cpf_digitos);
-    if (resultado == true){
-        printf("CPF válido!\n");
-    } else {
-        printf("CPF inválido!\n");
-    }
-
-    //não está funcionando direito!!!!!!!!!!!!
-  //  while (resultado == false){
-  //      printf("\nDigite um CPF válido:");
-  //      scanf("%s", clie[i].cpf);
-  //  } if (resultado == true){
-  //      break;
-  //  }
-    //não está funcionando direito!!!!!!!!!!!!
-
-
     }
 
     printf("\n---------------------- Clientes Cadastrados -------------------------\n");
