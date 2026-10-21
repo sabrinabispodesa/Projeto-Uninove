@@ -163,8 +163,6 @@ void cadastrar_cliente(){
     while (resultado != true);
     
     }
-    
-    }
 
     printf("\n---------------------- Clientes Cadastrados -------------------------\n");
     for (int i = 0; i < tamanho_da_array; i++){
