@@ -1,4 +1,3 @@
-// pedir ajudar -> cadastrar_cliente -> cpf -> while
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
@@ -57,22 +56,21 @@ int main(){
     printf("\n 3 - CADASTRAR SERVIÇO");
    // printf("\n 4 - COMPRAR PRODUTO");
 
-    printf("\n\nQual operação deseja execultar: ");
+    printf("\n\nQual operação deseja executar: ");
     scanf("%d", &escolha);
 
-    switch (escolha){
-        case 1:
-        cadastrar_cliente();
-
-        case 2:
-        cadastrar_produto(produto); 
-
-        case 3:
-        cadastrar_servico();
-
-        case 4:
-        tamanho =  cadastrar_produto(produto); 
-        escolher_produto(produto, tamanho);
+    if (escolha == 1){
+    cadastrar_cliente();
+    } 
+    else if (escolha == 2){
+    cadastrar_produto(produto); 
+    }
+    else if (escolha == 3){
+    cadastrar_servico();
+    }
+    else if(escolha == 4){
+    tamanho =  cadastrar_produto(produto); 
+    escolher_produto(produto, tamanho);
     }
    return 0;
 }
@@ -107,6 +105,7 @@ bool validaCPF(int num[]){
         } else {
             dev1 = 11 - resto;
         }
+    
         // Digito verificador 2 do CPF
         j = 11;
         soma = 0;
