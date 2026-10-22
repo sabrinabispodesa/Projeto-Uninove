@@ -54,8 +54,9 @@ int main(){
     printf("\n 1 - CADASTRAR CLIENTE");
     printf("\n 2 - CADASTRAR PRODUTO");
     printf("\n 3 - CADASTRAR SERVIÇO");
-   // printf("\n 4 - COMPRAR PRODUTO");
-
+    printf("\n 4 - COMPRAR PRODUTO");
+    printf("\n 5 - SAIR");
+do {
     printf("\n\nQual operação deseja executar: ");
     scanf("%d", &escolha);
 
@@ -63,15 +64,19 @@ int main(){
     cadastrar_cliente();
     } 
     else if (escolha == 2){
-    cadastrar_produto(produto); 
+     tamanho =  cadastrar_produto(produto);  
     }
     else if (escolha == 3){
     cadastrar_servico();
     }
     else if(escolha == 4){
-    tamanho =  cadastrar_produto(produto); 
-    escolher_produto(produto, tamanho);
+        if (tamanho > 0){
+        escolher_produto(produto, tamanho);
+    } else {
+        printf("\nNenhum produto cadastrado! Cadastre um produto primeiro (Opção 2)!\n");
     }
+} 
+}  while (escolha != 5);
    return 0;
 }
 
