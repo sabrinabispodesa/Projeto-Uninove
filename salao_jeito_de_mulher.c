@@ -238,19 +238,15 @@ void escolher_produto(struct produto pro[], int tamanho){
         printf("\nDigite o número do produto que deseja comprar: ");
         scanf ("%d", &escolher_produto);
 
+        do {
         printf("\nQual a quantidade de %s você quer comprar? ", pro[escolher_produto - 1].nome);
         scanf("%d", &quantidade_de_produto);
 
-        if(quantidade_de_produto > pro[escolher_produto - 1].estoque){
-            printf("\nQuantidade Indisponível!");
-            printf("\nDigite uma quantidade válida: ");
-            scanf("%d", &quantidade_de_produto);
-        } else if (quantidade_de_produto == 0){
-            printf("\nQuantidade Indisponível!");
-            printf("\nDigite uma quantidade válida: ");
-            scanf("%d", &quantidade_de_produto);
+        if (quantidade_de_produto == 0 || quantidade_de_produto > pro[escolher_produto - 1].estoque){
+            printf("\nQuantidade inválida! Digite uma quantidade válida!\n");
         }
-
+        } while (quantidade_de_produto == 0 || quantidade_de_produto > pro[escolher_produto - 1].estoque);
+   
         produtos_escolhidos[total_escolhidos] = escolher_produto - 1;
         quantidade_de_produtos_escolhidos[total_escolhidos] = quantidade_de_produto;
         total_escolhidos++;
